@@ -1,15 +1,15 @@
 import "package:flutter/material.dart";
 import 'package:fijkplayer/fijkplayer.dart';
 
-class MyPlayerPage extends StatefulWidget {
+class FijkplayerPage extends StatefulWidget {
   var title = "测试FijkPlayer";
 
   @override
-  _MyPlayerPageState createState() => _MyPlayerPageState();
+  _FijkplayerPageState createState() => _FijkplayerPageState();
 }
 
 
-class _MyPlayerPageState extends State<MyPlayerPage> {
+class _FijkplayerPageState extends State<FijkplayerPage> {
   final FijkPlayer player = FijkPlayer();
 
   @override

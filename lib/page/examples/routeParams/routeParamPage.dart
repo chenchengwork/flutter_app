@@ -3,16 +3,16 @@ import 'dart:convert';
 import "package:flutter/material.dart";
 import 'package:flutter_app/common/channel/channel.dart';
 
-class NewRoutePage extends StatefulWidget{
+class RouteParamPage extends StatefulWidget{
   String method;
 
-  NewRoutePage({this.method});
+  RouteParamPage({this.method});
 
   @override
-  _NewRoutePageState createState() => _NewRoutePageState();
+  _RouteParamPageState createState() => _RouteParamPageState();
 }
 
-class _NewRoutePageState extends State<NewRoutePage>{
+class _RouteParamPageState extends State<RouteParamPage>{
   String _batteryLevel = "";
 
   _getBatteryLevel() async{

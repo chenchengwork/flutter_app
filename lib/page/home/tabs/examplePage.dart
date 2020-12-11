@@ -1,31 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import '../../routers/routers.dart';
-import '../../store/timeRecordStore.dart';
-import '../../routers/routers.dart';
+import 'package:flutter_app/routers/routers.dart';
+import 'package:flutter_app/store/timeRecordStore.dart';
 
-class TimeRecordPage extends StatefulWidget{
-  TimeRecordPage({Key key}) : super(key: key);
+class ExamplePage extends StatefulWidget{
+  ExamplePage({Key key}) : super(key: key);
 
   @override
-  TimeRecordPageState createState() => TimeRecordPageState();
+  ExamplePageState createState() => ExamplePageState();
 }
 
-class TimeRecordPageState extends State<TimeRecordPage>
-    with AutomaticKeepAliveClientMixin<TimeRecordPage>, WidgetsBindingObserver{
+class ExamplePageState extends State<ExamplePage>
+    with AutomaticKeepAliveClientMixin<ExamplePage>, WidgetsBindingObserver{
 
   // wantKeepAlive设置为true保证widget不销毁
   @override
   bool get wantKeepAlive => true;
-
-  final _timeRecordStore = new TimeRecordStore();
-
+  final _exampleStore = new TimeRecordStore();
 
   @override
   void initState() {
     super.initState();
     WidgetsBinding.instance.addObserver(this);  // 添加观察者
-    print("TimeRecordPageState!");
+    print("ExamplePageState!");
   }
 
   @override
@@ -36,33 +33,33 @@ class TimeRecordPageState extends State<TimeRecordPage>
         RaisedButton(
           child: Text("获取远程数据"),
           onPressed: (){
-            _timeRecordStore.getData();
+            _exampleStore.getData();
           },
         ),
         RaisedButton(
           child: Text("改变数据"),
           onPressed: (){
-//            _timeRecordStore.getData();
-            _timeRecordStore.changeDataItem();
+//            _exampleStore.getData();
+            _exampleStore.changeDataItem();
           },
         ),
         RaisedButton(
           child: Text("查看视频播放器"),
           onPressed: (){
-            Routes.navigatorUtil.jump(context, EnumRouter.myPlayerPage);
+            Routes.navigatorUtil.jump(context, EnumRouter.exampleFijkplayerPage);
           },
         ),
 
         RaisedButton(
           child: Text("新页面传参方式1"),
           onPressed: (){
-            Routes.navigatorUtil.jump(context, Routes.formatRoute(EnumRouter.newRoutePage1, ["路由path传递参数"]));
+            Routes.navigatorUtil.jump(context, Routes.formatRoute(EnumRouter.exampleRouteParamPage1, ["路由path传递参数"]));
           },
         ),
         RaisedButton(
           child: Text("新页面传参方式2"),
           onPressed: (){
-            Routes.navigatorUtil.jump(context, "${EnumRouter.newRoutePage2}?method=${Routes.convertParamUtil.cnParamsEncode("url参数方式传递")}");
+            Routes.navigatorUtil.jump(context, "${EnumRouter.exampleRouteParamPage2}?method=${Routes.convertParamUtil.cnParamsEncode("url参数方式传递")}");
           },
         ),
         RaisedButton(
@@ -81,7 +78,7 @@ class TimeRecordPageState extends State<TimeRecordPage>
             child: Observer(builder: (_){
 
               return ListView(
-                children: ListTile.divideTiles(context: context, tiles: _timeRecordStore.data.map((data){
+                children: ListTile.divideTiles(context: context, tiles: _exampleStore.data.map((data){
                   return ListTile(
                       leading: Image.network(data.img),
                       title: Text(data.name),
@@ -89,7 +86,7 @@ class TimeRecordPageState extends State<TimeRecordPage>
                       trailing: Icon(Icons.chevron_right));
                 })).toList(),
               );
-              return Text(_timeRecordStore.data.toString());
+              return Text(_exampleStore.data.toString());
             }),
           ),
         ),

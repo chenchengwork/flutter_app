@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:random_pk/random_pk.dart';
 import 'package:flutter_app/common/theme.dart' as theme;
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:flutter_app/page/sign_up_page.dart';
-import 'package:flutter_app/page/sign_in_page.dart';
+import './sign_up_page.dart';
+import './sign_in_page.dart';
 
 class LoginPage extends StatefulWidget {
   LoginPage({Key key}) : super(key: key);

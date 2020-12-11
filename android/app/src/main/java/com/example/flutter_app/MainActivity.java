@@ -2,7 +2,7 @@ package com.example.flutter_app;
 
 import android.os.Bundle;
 
-import io.flutter.app.FlutterActivity;
+import io.flutter.embedding.android.FlutterActivity;
 import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler;
@@ -17,7 +17,7 @@ public class MainActivity extends FlutterActivity{
         super.onCreate(savedInstanceState);
 
         // 实例化一个公共通道
-        new MethodChannel(getFlutterView(), CHANNEL_COMMON).setMethodCallHandler(
+        new MethodChannel(getFlutterEngine().getDartExecutor().getBinaryMessenger(), CHANNEL_COMMON).setMethodCallHandler(
             new MethodCallHandler() {
                 @Override
                 public void onMethodCall(MethodCall call, Result result) {
