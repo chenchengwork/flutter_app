@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter_app/common/theme.dart' as theme;
 
-/**
- * 注册界面
- */
+///注册界面
 class SignUpPage extends StatefulWidget {
   @override
   _SignUpPageState createState() => new _SignUpPageState();
@@ -24,7 +22,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   borderRadius: BorderRadius.all(Radius.circular(8)),
                   color: Colors.white,),
                 width: 300,
-                height: 360,
+                height: 300,
                 child: buildSignUpTextForm()
             ),
 
@@ -36,9 +34,9 @@ class _SignUpPageState extends State<SignUpPage> {
                 gradient: theme.Theme.primaryGradient,
                 borderRadius: BorderRadius.all(Radius.circular(5)),
               ),
-              child: new Text("SignUp",
+              child: new Text("注册",
                 style: new TextStyle(fontSize: 25, color: Colors.white),),
-            ),), top: 340,)
+            ),), top: 310,)
 
           ],
         )

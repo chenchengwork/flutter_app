@@ -3,7 +3,7 @@ import 'package:fluro/fluro.dart';
 import 'routers.dart';
 
 import '../page/home/indexPage.dart';
-import '../page/login.dart';
+import '../page/login/loginPage.dart';
 
 class NavigatorUtil {
   // 返回
@@ -96,7 +96,7 @@ class NavigatorUtil {
   void goToLoginRemovePage(BuildContext context) {
     Navigator.of(context).pushAndRemoveUntil(
         MaterialPageRoute(
-          builder: (context) => Login(),
+          builder: (context) => LoginPage(),
         ),
             (route) => route == null);
   }

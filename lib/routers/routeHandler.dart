@@ -4,7 +4,7 @@ import 'package:fluro/fluro.dart';
 import 'package:flutter_app/page/common/splashPage.dart';
 import 'package:flutter_app/page/common/exceptionPage.dart';
 import 'package:flutter_app/page/home/indexPage.dart';
-import 'package:flutter_app/page/login/login_page.dart';
+import 'package:flutter_app/page/login/loginPage.dart';
 
 
 /// 启动页面

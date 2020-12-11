@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/common/theme.dart' as theme;
-import './sign_up_page.dart';
-import './sign_in_page.dart';
+import './signUpPage.dart';
+import './signInPage.dart';
 
 class LoginPage extends StatefulWidget {
   LoginPage({Key key}) : super(key: key);
@@ -59,7 +59,7 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                     mainAxisSize: MainAxisSize.max,
                     children: <Widget>[
                       new SizedBox(
-                        height: 75,
+                        height: 35,
                       ),
                       /**
                        * 可以用SizeBox这种写法代替Padding：在Row或者Column中单独设置一个方向的间距的时候
@@ -69,8 +69,8 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                       //顶部图片
                       new Image(
                           width: 250,
-                          height: 191,
-                          image: new AssetImage("assets/login_logo.png")),
+                          height: 60,
+                          image: new AssetImage("static/images/login_logo.png")),
                       new SizedBox(
                         height: 20,
                       ),
@@ -106,7 +106,7 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                                             curve: Curves.decelerate);
                                       },
                                       child: new Text(
-                                        "Existing",
+                                        "登录",
                                         style: TextStyle(fontSize: 16),
                                       ),
                                     ),
@@ -130,7 +130,7 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                                             curve: Curves.decelerate);
                                       },
                                       child: new Text(
-                                        "New",
+                                        "注册",
                                         style: TextStyle(fontSize: 16),
                                       ),
                                     ),
@@ -139,8 +139,6 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                           ],
                         ),
                       ),
-//                      new SignInPage(),
-//                      new SignUpPage(),
                       new Expanded(child: _pageView),
                     ],
                   ))),

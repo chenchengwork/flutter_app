@@ -69,10 +69,6 @@ class ExamplePageState extends State<ExamplePage>
           },
         ),
 
-
-
-
-
         Expanded(
           child: Container(
             child: Observer(builder: (_){

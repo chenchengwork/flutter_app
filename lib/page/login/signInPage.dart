@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter_app/common/theme.dart' as theme;
 
-/**
- *注册界面
- */
+/// 注册界面
 class SignInPage extends StatefulWidget {
   @override
   _SignInPageState createState() => new _SignInPageState();
@@ -12,10 +10,8 @@ class SignInPage extends StatefulWidget {
 
 class _SignInPageState extends State<SignInPage> {
 
-  /**
-   * 利用FocusNode和FocusScopeNode来控制焦点
-   * 可以通过FocusNode.of(context)来获取widget树中默认的FocusScopeNode
-   */
+   /// 利用FocusNode和FocusScopeNode来控制焦点
+   /// 可以通过FocusNode.of(context)来获取widget树中默认的FocusScopeNode
   FocusNode emailFocusNode = new FocusNode();
   FocusNode passwordFocusNode = new FocusNode();
   FocusScopeNode focusScopeNode = new FocusScopeNode();
@@ -42,8 +38,8 @@ class _SignInPageState extends State<SignInPage> {
               buildSignInTextForm(),
 
               Padding(
-                padding: const EdgeInsets.only(top: 50),
-                child: new Text("Forgot Password?",
+                padding: const EdgeInsets.only(top: 65),
+                child: new Text("忘记密码?",
                   style: new TextStyle(
                       fontSize: 16,
                       color: Colors.white,
@@ -69,7 +65,7 @@ class _SignInPageState extends State<SignInPage> {
                     ),
                     new Padding(
                       padding: EdgeInsets.only(left: 15, right: 15),
-                      child: new Text("Or", style: new TextStyle(
+                      child: new Text("其他登录方式", style: new TextStyle(
                           fontSize: 16, color: Colors.white),),),
                     new Container(height: 1,
                       width: 100,
@@ -117,24 +113,20 @@ class _SignInPageState extends State<SignInPage> {
 
             ],
           ),
-          new Positioned(child: buildSignInButton(), top: 170,)
+          new Positioned(child: buildSignInButton(), top: 200,)
         ],
       ),
     );
   }
 
-  /**
-   * 点击控制密码是否显示
-   */
+  /// 点击控制密码是否显示
   void showPassWord() {
     setState(() {
       isShowPassWord = !isShowPassWord;
     });
   }
 
-  /**
-   * 创建登录界面的TextForm
-   */
+  /// 创建登录界面的TextForm
   Widget buildSignInTextForm() {
     return new Container(
       decoration:
@@ -171,14 +163,14 @@ class _SignInPageState extends State<SignInPage> {
 
                   decoration: new InputDecoration(
                       icon: new Icon(Icons.email, color: Colors.black,),
-                      hintText: "Email Address",
+                      hintText: "邮箱",
                       border: InputBorder.none
                   ),
                   style: new TextStyle(fontSize: 16, color: Colors.black),
                   //验证
                   validator: (value) {
                     if (value.isEmpty) {
-                      return "Email can not be empty!";
+                      return "邮箱不能为空!";
                     }
                   },
                   onSaved: (value) {
@@ -200,7 +192,7 @@ class _SignInPageState extends State<SignInPage> {
                   focusNode: passwordFocusNode,
                   decoration: new InputDecoration(
                       icon: new Icon(Icons.lock, color: Colors.black,),
-                      hintText: "Password",
+                      hintText: "密码",
                       border: InputBorder.none,
                       suffixIcon: new IconButton(icon: new Icon(
                         Icons.remove_red_eye, color: Colors.black,),
@@ -211,7 +203,7 @@ class _SignInPageState extends State<SignInPage> {
                   style: new TextStyle(fontSize: 16, color: Colors.black),
                   validator: (value) {
                     if (value == null || value.isEmpty || value.length < 6) {
-                      return "Password'length must longer than 6!";
+                      return "密码长度必须大于6!";
                     }
                   },
                   onSaved: (value) {
@@ -227,9 +219,7 @@ class _SignInPageState extends State<SignInPage> {
     );
   }
 
-  /**
-   * 创建登录界面的按钮
-   */
+  /// 创建登录界面的按钮
   Widget buildSignInButton() {
     return
       new GestureDetector(
@@ -240,7 +230,7 @@ class _SignInPageState extends State<SignInPage> {
             gradient: theme.Theme.primaryGradient,
           ),
           child: new Text(
-            "LOGIN", style: new TextStyle(fontSize: 25, color: Colors.white),),
+            "登录", style: new TextStyle(fontSize: 25, color: Colors.white),),
         ),
         onTap: () {
           /**利用key来获取widget的状态FormState
