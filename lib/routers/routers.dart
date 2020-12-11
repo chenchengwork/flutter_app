@@ -2,6 +2,7 @@ import 'package:fluro/fluro.dart';
 import 'navigatorUtil.dart';
 import 'routeHandler.dart';
 import 'convertParamUtil.dart';
+import 'routeHandler.dart';
 
 class EnumRouter {
   static final String root = '/';
@@ -9,6 +10,8 @@ class EnumRouter {
   static final String login = '/login';
   static final String newRoutePage1 = 'newRoutePage1';
   static final String newRoutePage2 = 'newRoutePage2';
+  static final String myPlayerPage = 'myPlayerPage';
+  static final String loginPage = 'loginPage';
 }
 
 class Routes {
@@ -31,5 +34,7 @@ class Routes {
     router.define(EnumRouter.indexPage, handler: indexHandler);         // 首页页面配置
     router.define("${EnumRouter.newRoutePage1}/:method", handler: newRouteHandler1);   // 新页面配置
     router.define(EnumRouter.newRoutePage2, handler: newRouteHandler2);   // 新页面配置
+    router.define(EnumRouter.myPlayerPage, handler: myPlayerPageHandler);   // 新页面配置
+    router.define(EnumRouter.loginPage, handler: loginHandler);   // 新页面配置
   }
 }

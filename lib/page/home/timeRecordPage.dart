@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import '../../routers/routers.dart';
 import '../../store/timeRecordStore.dart';
 import '../../routers/routers.dart';
 
@@ -32,41 +33,48 @@ class TimeRecordPageState extends State<TimeRecordPage>
 
     return Column(
       children: <Widget>[
-        Row(
-          children: <Widget>[
-            RaisedButton(
-              child: Text("获取远程数据"),
-              onPressed: (){
-                _timeRecordStore.getData();
-              },
-            ),
-
-            RaisedButton(
-              child: Text("改变数据"),
-              onPressed: (){
+        RaisedButton(
+          child: Text("获取远程数据"),
+          onPressed: (){
+            _timeRecordStore.getData();
+          },
+        ),
+        RaisedButton(
+          child: Text("改变数据"),
+          onPressed: (){
 //            _timeRecordStore.getData();
-                _timeRecordStore.changeDataItem();
-              },
-            ),
-          ],
+            _timeRecordStore.changeDataItem();
+          },
         ),
-        Row(
-          children: <Widget>[
-            RaisedButton(
-              child: Text("新页面传参方式1"),
-              onPressed: (){
-                Routes.navigatorUtil.jump(context, Routes.formatRoute(EnumRouter.newRoutePage1, ["路由path传递参数"]));
-              },
-            ),
-            RaisedButton(
-              child: Text("新页面传参方式2"),
-              onPressed: (){
-                Routes.navigatorUtil.jump(context, "${EnumRouter.newRoutePage2}?method=${Routes.convertParamUtil.cnParamsEncode("url参数方式传递")}");
-              },
-            ),
+        RaisedButton(
+          child: Text("查看视频播放器"),
+          onPressed: (){
+            Routes.navigatorUtil.jump(context, EnumRouter.myPlayerPage);
+          },
+        ),
 
-          ],
+        RaisedButton(
+          child: Text("新页面传参方式1"),
+          onPressed: (){
+            Routes.navigatorUtil.jump(context, Routes.formatRoute(EnumRouter.newRoutePage1, ["路由path传递参数"]));
+          },
         ),
+        RaisedButton(
+          child: Text("新页面传参方式2"),
+          onPressed: (){
+            Routes.navigatorUtil.jump(context, "${EnumRouter.newRoutePage2}?method=${Routes.convertParamUtil.cnParamsEncode("url参数方式传递")}");
+          },
+        ),
+        RaisedButton(
+          child: Text("登录"),
+          onPressed: (){
+            Routes.navigatorUtil.jump(context, EnumRouter.loginPage);
+          },
+        ),
+
+
+
+
 
         Expanded(
           child: Container(
